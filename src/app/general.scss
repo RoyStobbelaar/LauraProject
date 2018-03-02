@@ -1,0 +1,20 @@
+
+
+$color1: #303030;
+$color2: #f4f4f4;
+$color3: #f4f4f4;
+$color4: #bc763c;
+$color5: #cc8361;
+
+h1, h2 {
+  color: #ff2244;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: .5s all;
+
+  &.fade-out {
+    opacity: 1;
+  }
+}

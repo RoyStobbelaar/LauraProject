@@ -1,0 +1,21 @@
+@import "src/app/general.scss";
+
+:host {
+
+  .group {
+
+    overflow: hidden;
+    padding: 16px 0;
+
+    ::ng-deep {
+      input {
+        flex: none !important;
+        width: 300px !important;
+      }
+      select {
+        flex: none !important;
+        width: 288px !important;
+      }
+    }
+  }
+}

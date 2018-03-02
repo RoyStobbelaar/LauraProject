@@ -1,0 +1,63 @@
+@import "src/app/general.scss";
+
+:host {
+
+  .container {
+    position: relative;
+
+    .header {
+      font-size: 28px;
+      height: 200px;
+      color: white;
+      background-color: $color2;
+    }
+
+    .slide-menu {
+
+      color: white;
+      background-color: $color3;
+      z-index: 2;
+      position: absolute;
+      overflow: hidden;
+      text-align: center;
+      transition: all .5s;
+      height: 100vh;
+      width: 100%;
+      border-right: 1px solid #dddddd;
+      border-left: 1px solid #dddddd;
+
+
+      .slide-menu-box {
+
+        top: 200px;
+        position: relative;
+
+        .slide-menu-item {
+          top: 200px;
+          color: #ff2244;
+          font-size: 20px;
+          font-weight: bold;
+          padding: 16px 0;
+          width: 100%;
+          border-bottom: 1px solid #ff2244;
+          border-bottom-left-radius: 24px;
+          transition: .5s all;
+        }
+        .slide-menu-item:hover {
+          cursor: pointer;
+          border-bottom: 1px solid #ff2244;
+          border-bottom-width: 12px;
+          //background-color: rgba(255, 34, 68, 0.5);
+        }
+      }
+    }
+
+    .content {
+      position: relative;
+      //left: 200px;
+      height: 80vh;
+      padding: 16px;
+      background-color: $color2;
+    }
+  }
+}
