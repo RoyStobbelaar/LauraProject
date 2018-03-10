@@ -1,6 +1,5 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
-import {AngularFireDatabase} from 'angularfire2/database';
-
+import {AngularFireDatabase, AngularFireList, AngularFireObject} from 'angularfire2/database';
 
 @Component({
   selector: 'reserve',
@@ -8,24 +7,28 @@ import {AngularFireDatabase} from 'angularfire2/database';
     
     <div #container class="fade-in">
     
-    <h2>Reservatie</h2>
+    <h2>Reserveren</h2>
     
     <p>
-      Hier onder kunt u kaartjes reserveren voor de show.
+      Hier onder kunt u kaartjes reserveren voor de show. <br>
+      Selecteer het aantal kaartjes, en de student voor wie u komt. <br>
+      Een bevestiging krijgt u via de mail. <br>
+      <br>
+      Tickets beschikbaar: {{ticketsAmount}}
     </p>
     <div class="group">
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text">Aantal</span>
+          <span style="width: 83px" class="input-group-text">Aantal</span>
         </div>
-        <input type="number" min="1" value="1" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-default">
+        <input type="number" [(ngModel)]="amount" min="1" value="1" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-default">
       </div>
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text">E-mail</span>
+          <span style="width: 83px" class="input-group-text">E-mail</span>
         </div>
-        <input type="text" [placeholder]="'example@gmail.com'" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        <input type="text" [(ngModel)]="email" [placeholder]="'example@gmail.com'" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
       </div>
 
       <div class="input-group mb-3">
@@ -38,7 +41,11 @@ import {AngularFireDatabase} from 'angularfire2/database';
           <option value="3">Laura</option>
         </select>
       </div>
-    </div>
+
+      <div class="input-group mb-3" style="margin-top: 42px;">
+        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="updateTickets()">Reserveer</button>
+      </div>
+      
     </div>
     
   `,
@@ -46,6 +53,13 @@ import {AngularFireDatabase} from 'angularfire2/database';
 })
 
 export class ReserveComponent implements AfterViewInit {
+
+  public items: AngularFireObject<any>;
+  public emails: AngularFireList<any>;
+
+  public email: string;
+  public ticketsAmount: number;
+  public amount: number;
 
   @ViewChild('container') ref: ElementRef;
 
@@ -55,19 +69,27 @@ export class ReserveComponent implements AfterViewInit {
     },0);
   }
 
-
-  items: any;
   constructor(public db: AngularFireDatabase) {
 
-    this.getItems().subscribe(result => {
-      console.log(result);
-      this.items = result;
-    })
+    this.items = this.db.object('/amount');
+    this.items.valueChanges().subscribe((data:number) => {
+      this.ticketsAmount = data;
+    });
 
+    this.emails = this.db.list('/emails');
+    this.emails.valueChanges().subscribe((data: string[]) => {
+      console.log('emails', data);
+    })
   }
 
-  public getItems() {
-    return this.db.list('/test').valueChanges();
+  public updateTickets() {
+
+    if (!this.amount) return;
+
+    this.ticketsAmount = this.ticketsAmount - this.amount;
+    this.items.set(this.ticketsAmount);
+
+    this.emails.push(this.email);
   }
 
 }

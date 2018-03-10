@@ -14,8 +14,30 @@
       }
       select {
         flex: none !important;
-        width: 288px !important;
+        width: 300px !important;
       }
     }
+  }
+
+  button {
+    width: 384px;
+    background-color: #ff2244;
+    border-color: #ff2244;
+    box-shadow: none!important;
+  }
+
+  button:hover {
+    cursor: pointer;
+    background-color: #dd1122;
+  }
+
+  .btn-primary.focus, .btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 50, 0, .5);
+  }
+
+  .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #ff2244;
+    border-color: #ff2244;
   }
 }
