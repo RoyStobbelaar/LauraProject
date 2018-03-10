@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
+import {ResponsiveService} from '../services/responsive/responsive.service';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 
 @Component({
@@ -7,11 +9,42 @@ import {Router} from '@angular/router';
   template: `
     <div class="container">
       <div class="row justify-content-md-center">
+        
         <div class="col-12">
-
-
+          
           <div class="row">
-            <div class="col-3">
+
+            <div class="slide-menu" style="width: 200px" *ngIf="openMobile && responsiveService.isMobile" [@enterAnimation]>
+              <div class="slide-menu-box" style="top: 50px">
+                <div class="slide-menu-item" (click)="navigate('home')">
+                  Home
+                </div>
+
+                <div class="slide-menu-item" (click)="navigate('daphne')">
+                  Daphne
+                </div>
+
+                <div class="slide-menu-item" (click)="navigate('giulia')">
+                  Giulia
+                </div>
+
+                <div class="slide-menu-item" (click)="navigate('laura')">
+                  Laura
+                </div>
+
+                <div class="slide-menu-item" (click)="navigate('reserveren')">
+                  Reserveren
+                </div>
+              </div>
+            </div>
+
+            <div class="closed" (click)="openMenu()" *ngIf="!openMobile && responsiveService.isMobile">
+              <img [src]="'http://www.stickpng.com/assets/images/588a64d2d06f6719692a2d0e.png'"
+                   style="width: 32px; height: 32px; position: absolute; top: 6px; left: 6px; cursor: pointer">
+            </div>
+            
+            
+            <div class="col-3" *ngIf="!responsiveService.isMobile">
 
               <div class="slide-menu">
                 <div class="slide-menu-box">
@@ -38,12 +71,12 @@ import {Router} from '@angular/router';
               </div>
             </div>
 
-            <div class="col-9">
-              <div class="header">
+            <div [ngClass]="{'col-9': !responsiveService.isMobile}">
+              <div class="header" (click)="closeMenu()">
                 Hier een header
               </div>
 
-              <div class="content">
+              <div class="content" (click)="closeMenu()">
                 <ng-content></ng-content>
               </div>
             </div>
@@ -51,28 +84,44 @@ import {Router} from '@angular/router';
         </div>
       </div>
     </div>
-
+    
   `,
-  styleUrls: ['./layout.component.scss']
+  styleUrls: ['./layout.component.scss'],
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({transform: 'translateX(-100%)', opacity: 0}),
+          animate('500ms', style({transform: 'translateX(0)', opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({transform: 'translateX(0)', opacity: 1}),
+          animate('500ms', style({transform: 'translateX(-100%)', opacity: 0}))
+        ])
+      ]
+    )
+  ],
 })
 
 export class LayoutComponent {
 
   public isOpen: boolean;
+  public openMobile: boolean;
 
-  constructor(private _router: Router) {
-
+  constructor(private _router: Router, public responsiveService: ResponsiveService) {
+    console.log(responsiveService.isMobile);
   }
 
   public openMenu() {
-    this.isOpen = true;
+    this.openMobile = true;
   }
 
   public closeMenu() {
-    this.isOpen = false;
+    this.openMobile = false;
   }
 
   public navigate(path: string) {
+    this.closeMenu();
     this._router.navigateByUrl(path);
   }
 

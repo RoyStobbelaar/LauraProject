@@ -15,6 +15,8 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {environment} from '../environments/environment';
 import {AngularFirestore} from 'angularfire2/firestore';
+import {ResponsiveService} from './services/responsive/responsive.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -40,12 +42,13 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     CommonModule,
+    BrowserAnimationsModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [AngularFirestore],
+  providers: [AngularFirestore, ResponsiveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

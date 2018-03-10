@@ -60,6 +60,10 @@
       height: 100vh;
       padding: 16px;
       background-color: $color2;
+
+      &.mobile {
+        left: 0;
+      }
     }
   }
 }
