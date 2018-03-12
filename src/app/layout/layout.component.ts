@@ -7,6 +7,8 @@ import {animate, style, transition, trigger} from '@angular/animations';
 @Component({
   selector: 'layout',
   template: `
+    <img [src]="'./assets/2.png'">
+    <img [src]="'./assets/1.png'" style="right: 0">
     <div class="container">
       <div class="row justify-content-md-center">
         
@@ -84,7 +86,6 @@ import {animate, style, transition, trigger} from '@angular/animations';
         </div>
       </div>
     </div>
-    
   `,
   styleUrls: ['./layout.component.scss'],
   animations: [
