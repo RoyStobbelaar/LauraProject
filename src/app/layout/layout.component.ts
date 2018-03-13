@@ -5,15 +5,20 @@ import {animate, style, transition, trigger} from '@angular/animations';
 
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'layout',
   template: `
-    <img [src]="'./assets/2.png'">
-    <img [src]="'./assets/1.png'" style="right: 0">
+    <img [src]="'./assets/1.png'">
+    <img [src]="'./assets/2.png'" style="right: 0">
     <div class="container">
       <div class="row justify-content-md-center">
-        
+
         <div class="col-12">
-          
+
+        <div class="header" (click)="closeMenu()">
+        Afstuderen yay!
+      </div>
+
           <div class="row">
 
             <div class="slide-menu" style="width: 200px" *ngIf="openMobile && responsiveService.isMobile" [@enterAnimation]>
@@ -44,8 +49,8 @@ import {animate, style, transition, trigger} from '@angular/animations';
               <img [src]="'http://www.stickpng.com/assets/images/588a64d2d06f6719692a2d0e.png'"
                    style="width: 32px; height: 32px; position: absolute; top: 6px; left: 6px; cursor: pointer">
             </div>
-            
-            
+
+
             <div class="col-3" *ngIf="!responsiveService.isMobile">
 
               <div class="slide-menu">
@@ -74,10 +79,6 @@ import {animate, style, transition, trigger} from '@angular/animations';
             </div>
 
             <div [ngClass]="{'col-9': !responsiveService.isMobile}">
-              <div class="header" (click)="closeMenu()">
-                Hier een header
-              </div>
-
               <div class="content" (click)="closeMenu()">
                 <ng-content></ng-content>
               </div>
