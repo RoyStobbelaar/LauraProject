@@ -15,8 +15,8 @@ import {animate, style, transition, trigger} from '@angular/animations';
 
         <div class="col-12">
 
-        <div class="header" (click)="closeMenu()">
-        Afstuderen yay!
+        <div class="header" [ngClass]="{'mobile-header': responsiveService.isMobile}" (click)="closeMenu()">
+        Afstuderen 5 Juni
       </div>
 
           <div class="row">

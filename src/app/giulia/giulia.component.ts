@@ -5,11 +5,27 @@ import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
   selector: 'giulia',
   template: `
     <div #container class="fade-in">
-  <h2>Waar komt het vandaan?</h2>
+      <h2>
+        Samenvatting Propaganda geschreven door André Gijssel
+      </h2>
 
-  <p>
-  In tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige tekst. het heeft zijn wortels in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud. Richard McClintock, een professor latijn aan de Hampden-Sydney College in Virginia, heeft één van de meer obscure latijnse woorden, consectetur, uit een Lorem Ipsum passage opgezocht, en heeft tijdens het zoeken naar het woord in de klassieke literatuur de onverdachte bron ontdekt. Lorem Ipsum komt uit de secties 1.10.32 en 1.10.33 van "de Finibus Bonorum et Malorum" (De uitersten van goed en kwaad) door Cicero, geschreven in 45 v.Chr. Dit boek is een verhandeling over de theorie der ethiek, erg populair tijdens de renaissance. De eerste regel van Lorem Ipsum, "Lorem ipsum dolor sit amet..", komt uit een zin in sectie 1.10.32.
-  </p></div>
+      <p>
+        Dit stuk gaat over een vrouw die zichzelf kwijt en is en twijfelt of ze zichzelf ooit heeft gekend.
+        In tegenstelling tot het spel dat haar fascineert.
+        Ze blikt terug op haar leven en dat wat onvermijdelijk zal zijn.
+        Net als de 52 kaarten die allemaal hun onvermijdelijke plek krijgen.
+        Had ze met meer zelfkennis andere of betere keuzes gemaakt?
+        Patience gaat over keuzes maken. Welke kaart leg ik waar neer. Daar kom je niet voor verrassingen te staan.
+        Anders dan in het leven. Haar leven.
+      </p>
+      <p>
+        Dit stuk gaat over Johanna Maria Magdalena Behrend, beter bekent als Magda Goebbels, echtgenote van Joseph Goebbels.
+        Een belangrijk en bekend man in Duitseland in de jaren 30. voornamelijk propagandaleider.
+        Magda verteld over haar verleden en wat er in de toekomst zal gebeuren.
+        Dit aangrijpende verhaal dat zich afspeelt in 1945 wordt op 5 juni 2018 om 19.30 opgevoerd in de Kleine Willem te Enschede en wordt
+        gespeeld door Giulia Radulescu.
+      </p>
+    </div>
   `,
   styleUrls: ['./giulia.component.scss']
 })
@@ -26,7 +42,7 @@ export class GiuliaComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.ref.nativeElement.classList.add('fade-out');
-    },0);
+    }, 0);
   }
 
 }
