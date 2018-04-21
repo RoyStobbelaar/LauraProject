@@ -14,7 +14,6 @@ import {AngularFireDatabase, AngularFireList, AngularFireObject} from 'angularfi
       Selecteer het aantal kaartjes, en de student voor wie u komt. <br>
       Een bevestiging krijgt u via de mail. <br>
       <br>
-      Tickets beschikbaar: {{ticketsAmount}}
     </p>
     <div class="group">
       <div class="input-group mb-3">
@@ -42,8 +41,11 @@ import {AngularFireDatabase, AngularFireList, AngularFireObject} from 'angularfi
         </select>
       </div>
 
+      <p *ngIf="ticketsAmount < 1" style="color: red">
+        Alle tickets zijn al gereserveerd!
+      </p>
       <div class="input-group mb-3" style="margin-top: 42px;">
-        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="updateTickets()">Reserveer</button>
+        <button type="button" [disabled]="ticketsAmount < 1" class="btn btn-primary btn-lg btn-block" (click)="updateTickets()">Reserveer</button>
       </div>
       
     </div>
@@ -78,7 +80,6 @@ export class ReserveComponent implements AfterViewInit {
 
     this.emails = this.db.list('/emails');
     this.emails.valueChanges().subscribe((data: string[]) => {
-      console.log('emails', data);
     })
   }
 

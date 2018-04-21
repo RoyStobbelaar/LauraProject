@@ -9,6 +9,11 @@ import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
         Samenvatting Propaganda geschreven door André Gijssel
       </h2>
 
+      <div>
+      <div class="image-container">
+        <img class="image" src="../../assets/giulia.jpeg" style="max-width: none">
+      </div>
+
       <p>
         Dit stuk gaat over een vrouw die zichzelf kwijt en is en twijfelt of ze zichzelf ooit heeft gekend.
         In tegenstelling tot het spel dat haar fascineert.
@@ -25,6 +30,7 @@ import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
         Dit aangrijpende verhaal dat zich afspeelt in 1945 wordt op 5 juni 2018 om 19.30 opgevoerd in de Kleine Willem te Enschede en wordt
         gespeeld door Giulia Radulescu.
       </p>
+    </div>
     </div>
   `,
   styleUrls: ['./giulia.component.scss']

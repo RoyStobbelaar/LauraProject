@@ -8,8 +8,8 @@ import {animate, style, transition, trigger} from '@angular/animations';
   // tslint:disable-next-line:component-selector
   selector: 'layout',
   template: `
-    <img [src]="'./assets/1.png'" style="z-index: 22" *ngIf="!responsiveService.isMobile">
-    <img [src]="'./assets/2.png'" style="right: 0; z-index: 22" *ngIf="!responsiveService.isMobile">
+    <!--<img [src]="'./assets/1.png'" style="z-index: 22" *ngIf="!responsiveService.isMobile">-->
+    <!--<img [src]="'./assets/2.png'" style="right: 0; z-index: 22" *ngIf="!responsiveService.isMobile">-->
     <div class="container">
       <div class="row justify-content-md-center">
 

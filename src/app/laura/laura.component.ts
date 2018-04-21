@@ -8,7 +8,12 @@ import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
       <h2>
         Dromen?!
       </h2>
-      <p>
+      <div>
+        
+        <div class="image-container">
+          <img class="image" src="../../assets/laura.png" style="max-height: none">
+        </div>
+        <p>
         Een meisje die wil stoppen met geloven in alles waar ze ooit van dacht dat het waar was.
         Alles waar ze ooit van gedroomd had. Moet je dat kleine stukje geloof laten bestaan?
         Moet je dat kleine stukje kind van binnen gewoon laten zitten? Het is soms lastig om naar je hart te luisteren als iedereen om je
@@ -18,7 +23,8 @@ import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
         Iedereen heeft iets nodig om in te geloven! Wilt u weten wat mij heeft geholpen deze keuze te maken? Kom dan 5 juni naar de
         voorstelling Dromen?!
         In de Kleine Willem.
-      </p>
+        </p>
+      </div>
     </div>
   `,
   styleUrls: ['./laura.component.scss']

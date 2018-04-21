@@ -5,12 +5,22 @@ import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
   selector: 'daphne',
   template: `
     <div #container class="fade-in">
-    <h2> Waarom gebruiken we het?
+    <h2>
+      Meeslepend Totaal Theater
     </h2>
-<p>
-    Het is al geruime tijd een bekend gegeven dat een lezer, tijdens het bekijken van de layout van een pagina, afgeleid wordt door de tekstuele inhoud. Het belangrijke punt van het gebruik van Lorem Ipsum is dat het uit een min of meer normale verdeling van letters bestaat, in tegenstelling tot "Hier uw tekst, hier uw tekst" wat het tot min of meer leesbaar nederlands maakt. Veel desktop publishing pakketten en web pagina editors gebruiken tegenwoordig Lorem Ipsum als hun standaard model tekst, en een zoekopdracht naar "lorem ipsum" ontsluit veel websites die nog in aanbouw zijn. Verscheidene versies hebben zich ontwikkeld in de loop van de jaren, soms per ongeluk soms expres (ingevoegde humor en dergelijke).
-</p>
-    </div>
+      <p>
+
+        <div class="image-container">
+          <img class="image" src="../../assets/daphne.jpeg" style="max-height: none">
+        </div>
+        <p>
+
+  Genevieve staat op het punt te trouwen, maar de twijfel slaat toe, wil ze dit wel? Want ze heeft altijd geroepen IK ga nooit trouwen.
+
+  Tijdens de voorstelling wordt het publiek mee genomen in haar verleden en hoe ze gekomen is op het punt waar ze nu is. Wordt duidelijk waarom ze twijfelt? Wat kiest ze uit eindelijk?
+
+  Daphne Fernhout is 3e jaars theaterstudent aan de podiumacademie Twente. Als kleine meisje deed ze al Pia Douwes als Keizerin Elisabeth na in een grote witte jurk midden in de woonkamer. Het toneel riep haar gewoon, van weeksluitingen, dansvoorstellingen tot de kunstklas. Haar grote liefde is theater. Ze is haar hele leven al op het toneel te vinden en heeft o.a. gespeelt in Van Katoen en Nu, Hamelen en Het Verzet Kraakt. Met Nog; hoopt zij af te studeren, daarna wil ze verder studeren voor docent theater. Als Genevieve in Nog; wil ze het publiek meenemen op een reis van liefde, hoop en doorzettingsvermogen. Want wat er ook gebeurd het is nog niet het einde. Nog; is gebaseerd op verhalen uit haar leven. Waardoor het verhaal dichtbij haar zelf ligt, ook al gaat zij nog niet trouwen hoor ;)</p>
+      </div>
   `,
   styleUrls: ['./daphne.component.scss']
 })
