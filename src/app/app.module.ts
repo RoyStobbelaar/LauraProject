@@ -17,6 +17,8 @@ import {environment} from '../environments/environment';
 import {AngularFirestore} from 'angularfire2/firestore';
 import {ResponsiveService} from './services/responsive/responsive.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ModalDialogModule} from 'ngx-modal-dialog';
+import {MyModalComponent} from './modal/my-modal.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -36,7 +38,8 @@ const routes: Routes = [
     GiuliaComponent,
     LauraComponent,
     ReserveComponent,
-    LayoutComponent
+    LayoutComponent,
+    MyModalComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +47,13 @@ const routes: Routes = [
     CommonModule,
     BrowserAnimationsModule,
     FormsModule,
+    ModalDialogModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule
+  ],
+  entryComponents: [
+    MyModalComponent
   ],
   providers: [AngularFirestore, ResponsiveService],
   bootstrap: [AppComponent]
