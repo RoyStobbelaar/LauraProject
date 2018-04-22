@@ -19,6 +19,7 @@ import {ResponsiveService} from './services/responsive/responsive.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ModalDialogModule} from 'ngx-modal-dialog';
 import {MyModalComponent} from './modal/my-modal.component';
+import {ImageService} from './image/image.service';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -55,7 +56,7 @@ const routes: Routes = [
   entryComponents: [
     MyModalComponent
   ],
-  providers: [AngularFirestore, ResponsiveService],
+  providers: [AngularFirestore, ResponsiveService, ImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

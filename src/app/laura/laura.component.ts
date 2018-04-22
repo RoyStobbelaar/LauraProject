@@ -1,6 +1,7 @@
-import {AfterViewInit, Component, ElementRef, ViewChild, ViewContainerRef, ComponentRef} from '@angular/core';
-import { ModalDialogService, SimpleModalComponent, IModalDialog, IModalDialogOptions } from 'ngx-modal-dialog';
+import {AfterViewInit, Component, ElementRef, ViewChild, ViewContainerRef} from '@angular/core';
+import { ModalDialogService } from 'ngx-modal-dialog';
 import { MyModalComponent } from '../modal/my-modal.component';
+import {ImageService} from '../image/image.service';
 
 
 @Component({
@@ -39,7 +40,8 @@ export class LauraComponent implements AfterViewInit {
 
   constructor(
     private _modalService: ModalDialogService,
-    private _viewRef: ViewContainerRef) {
+    private _viewRef: ViewContainerRef,
+    private _imageService: ImageService) {
   }
 
   ngAfterViewInit(): void {
@@ -49,7 +51,7 @@ export class LauraComponent implements AfterViewInit {
   }
 
   public openDialog() {
-    console.log('test');
+    this._imageService.setPath('../../assets/laura.png');
     this._modalService.openDialog(this._viewRef, {
       title: 'Poster',
       childComponent: MyModalComponent

@@ -1,4 +1,7 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild, ViewContainerRef} from '@angular/core';
+import {MyModalComponent} from '../modal/my-modal.component';
+import {ImageService} from '../image/image.service';
+import {ModalDialogService} from 'ngx-modal-dialog';
 
 
 @Component({
@@ -10,7 +13,7 @@ import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
       </h2>
 
       <div>
-      <div class="image-container">
+      <div class="image-container" (click)="openDialog()">
         <img class="image" src="../../assets/giulia.jpeg" style="max-width: none">
       </div>
 
@@ -41,7 +44,11 @@ export class GiuliaComponent implements AfterViewInit {
 
   @ViewChild('container') ref: ElementRef;
 
-  constructor() {
+  constructor(
+    private _imageService: ImageService,
+    private _modalService: ModalDialogService,
+    private _viewRef: ViewContainerRef)
+  {
 
   }
 
@@ -49,6 +56,14 @@ export class GiuliaComponent implements AfterViewInit {
     setTimeout(() => {
       this.ref.nativeElement.classList.add('fade-out');
     }, 0);
+  }
+
+  public openDialog() {
+    this._imageService.setPath('../../assets/giulia.jpeg');
+    this._modalService.openDialog(this._viewRef, {
+      title: 'Poster',
+      childComponent: MyModalComponent
+    });
   }
 
 }
