@@ -5,7 +5,7 @@ import {ImageService} from '../image/image.service';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'my-modal',
-  template: `    
+  template: `
     <div class="modal-content">
       <img class="image" [src]="path">
     </div>
@@ -14,6 +14,8 @@ import {ImageService} from '../image/image.service';
 })
 
 export class MyModalComponent implements IModalDialog {
+
+  public rotate: boolean;
 
   @Input() path: string;
 

@@ -14,7 +14,7 @@ import {ModalDialogService} from 'ngx-modal-dialog';
       <p>
 
         <div class="image-container" (click)="openDialog()">
-          <img class="image" src="../../assets/daphne.jpeg" style="max-height: none">
+          <img class="image" src="../../assets/daphne2.jpg"  style="max-width: none;">
         </div>
         <p>
 
@@ -49,7 +49,7 @@ export class DaphneComponent implements AfterViewInit {
   }
 
   public openDialog() {
-    this._imageService.setPath('./assets/daphne.jpeg');
+    this._imageService.setPath('./assets/daphne2.jpg');
     this._modalService.openDialog(this._viewRef, {
       title: 'Poster',
       childComponent: MyModalComponent

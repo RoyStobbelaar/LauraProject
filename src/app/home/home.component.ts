@@ -6,11 +6,12 @@ import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
   template: `
     <div #container class="fade-in">
   <h2>
-    Wat is Lorem Ipsum?
+  Op 5 Juni is het zover
   </h2>
   <p>
-  Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. Het is in de jaren '60 populair geworden met de introductie van Letraset vellen met Lorem Ipsum passages en meer recentelijk door desktop publishing software zoals Aldus PageMaker die versies van Lorem Ipsum bevatten.
-  </p>
+  Dan mogen Daphne, Giulia en Laura hun afstudeervoorstellingen presenteren. Elke voorstelling gaat over een vrouw die staat voor een moeilijke keuze, bij elke vrouw een andere keuze. Hun voorstellingen laten zien wat er om gaat in de hoofden van deze vrouwen en hoe ze uit eindelijk tot een besluit komen of niet. De stukken van Daphne en Laura zijn autobiografisch en Giulia speelt een vrouw uit de geschiedenis. Lees meer informatie over de individuele voorstelling door op die namen in het menu te klikken. Lijkt het u na het lezen van deze pagina’s leuk om te komen kijken? Reserveer dan kaartjes en wordt verwonderd
+
+  “She believed she could, so she did”  </p>
     </div>
   `,
   styleUrls: ['./home.component.scss']
